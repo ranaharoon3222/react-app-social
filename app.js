@@ -5,6 +5,9 @@ const app = express();
 // Connet Databsase
 connectDB();
 
+// initilize body parser buil in
+app.use(express.json({extended:false}))
+
 app.get('/', (req, res) => {
   res.send('App running');
 });
