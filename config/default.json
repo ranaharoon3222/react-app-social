@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://ranaharoon322:haroon22@react-app-cvrae.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "ranasecrettoken"
+  "jwtSecret": "ranasecrettoken",
+  "githubClient": "f251e1439414faf608e5",
+  "githubSecret": "9df9e83e9617f593867bb2405ae53a4908005cd5"
 }
