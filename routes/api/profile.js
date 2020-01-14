@@ -165,8 +165,8 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
-// @Delete  api/profile
-// @desc Delete profile, user & Posts
+// @PUT  api/profile/experience
+// @desc add experience
 // @access private
 router.put(
   '/experience',
