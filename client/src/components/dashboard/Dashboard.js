@@ -20,9 +20,9 @@ const Dashboard = ({
   ) : (
     <Fragment>
       {' '}
-      <h1 class='large text-primary'>Dashboard</h1>
-      <p class='lead'>
-        <i class='fas fa-user'></i> Welcome {user && user.name}
+      <h1 className='large text-primary'>Dashboard</h1>
+      <p className='lead'>
+        <i className='fas fa-user'></i> Welcome {user && user.name}
       </p>{' '}
       <Fragment>
         {profile !== null ? (
