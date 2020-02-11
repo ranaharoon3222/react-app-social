@@ -16,7 +16,7 @@ import {
   MuiPickersUtilsProvider
 } from '@material-ui/pickers';
 import { makeStyles } from '@material-ui/core/styles';
-import { profileExperience } from '../../actions/profile';
+import { profileEducation } from '../../actions/profile';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
@@ -51,12 +51,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AddExperience = ({ profileExperience, history }) => {
+const AddEducation = ({ profileEducation, history }) => {
   const classes = useStyles();
   const [formData, setFormData] = useState({
-    company: '',
-    title: '',
-    location: '',
+    school: '',
+    degree: '',
+    fieldofstudy: '',
     from: new Date(),
     to: new Date(),
     current: false,
@@ -64,14 +64,14 @@ const AddExperience = ({ profileExperience, history }) => {
   });
 
   const [todateDisable, toggleDisable] = useState(false);
-  const { company, title, location, from, to, current, description } = formData;
+  const { school, degree, fieldofstudy, from, to, current, description } = formData;
 
   const handleInputChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const onSubmit = e => {
     e.preventDefault();
-    profileExperience(formData, history);
+    profileEducation(formData, history);
   };
 
   return (
@@ -85,28 +85,28 @@ const AddExperience = ({ profileExperience, history }) => {
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  name='company'
-                  label='Company'
+                  name='school'
+                  label='School'
                   fullWidth
-                  value={company}
+                  value={school}
                   onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  name='title'
-                  label='Title'
+                  name='degree'
+                  label='Degree'
                   fullWidth
-                  value={title}
+                  value={degree}
                   onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  name='location'
-                  label='Location'
+                  name='fieldofstudy'
+                  label='Fieldofstudy'
                   fullWidth
-                  value={location}
+                  value={fieldofstudy}
                   onChange={handleInputChange}
                 />
               </Grid>
@@ -195,12 +195,12 @@ const AddExperience = ({ profileExperience, history }) => {
   );
 };
 
-AddExperience.propTypes = {
-  profileExperience: PropTypes.func.isRequired
+AddEducation.propTypes = {
+    profileEducation: PropTypes.func.isRequired
 };
 
 // const mapStateToProps = state => ({
 //   profile: state.profile
 // });
 
-export default connect(null, { profileExperience })(withRouter(AddExperience));
+export default connect(null, { profileEducation})(withRouter(AddEducation));
