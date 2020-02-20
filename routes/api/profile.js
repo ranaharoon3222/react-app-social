@@ -6,6 +6,7 @@ const auth = require('../../middleware/auth');
 
 const Profile = require('../../models/profile');
 const User = require('../../models/User');
+const Post = require('../../models/post');
 /// ...rest of the initial code omitted for simplicity.
 const { check, validationResult } = require('express-validator');
 
@@ -19,7 +20,9 @@ router.get('/me', auth, async (req, res) => {
       user: req.user.id
     }).populate('user', ['name', 'avatar']);
     if (!profile) {
-    return res.status(400).json({ msg: 'There is no profile for this user ' });
+      return res
+        .status(400)
+        .json({ msg: 'There is no profile for this user ' });
     }
     res.json(profile);
   } catch (err) {
@@ -153,6 +156,8 @@ router.get('/user/:user_id', async (req, res) => {
 
 router.delete('/', auth, async (req, res) => {
   try {
+    //delete posts
+    await Post.deleteMany({ user: req.user.id });
     // delete user profile
     await Profile.findOneAndDelete({ user: req.user.id });
     // delete user
@@ -324,7 +329,6 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
       await profile.save();
       return res.json(profile);
     } else {
-      
       return res.json(profile);
     }
   } catch (err) {
@@ -351,7 +355,7 @@ router.get('/github/:username', (req, res) => {
     request(options, (error, response, body) => {
       if (error) console.error(error);
       if (response.statusCode !== 200) {
-       return res.status(404).json({ msg: 'No github repo Found' });
+        return res.status(404).json({ msg: 'No github repo Found' });
       }
       res.json(JSON.parse(body));
     });
