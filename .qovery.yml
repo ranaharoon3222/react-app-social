@@ -1,0 +1,16 @@
+---
+application:
+  name: "react-app-social"
+  project: "test"
+  organization: "QoveryCommunity"
+  storage:
+  - name: "ky"
+    size: "10"
+    type: "ssd"
+    mount_point: "/mnt/ky"
+routers:
+- name: "main-react-app-social"
+  routes:
+  - application_name: "react-app-social"
+    paths:
+    - "/*"
