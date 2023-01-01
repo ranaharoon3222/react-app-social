@@ -18,7 +18,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
     "bcryptjs": "^2.4.3",
-    "config": "^3.2.4",
+    "config": "^3.3.8",
     "date-fns": "^2.9.0",
     "express": "^4.17.1",
     "express-validator": "^6.3.1",
